@@ -24,4 +24,4 @@ Person.metaClass.static.createPerson = { String name, int age ->
     new Person(name: name, age: age)
 }
 def person3 = Person.createPerson('zhaojiaxing', 27)
-println "$person3.name $person3.age"
+//println "$person3.name $person3.age"
