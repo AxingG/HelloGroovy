@@ -11,7 +11,7 @@ class Gradle {
         println api.toListString()
     }
 
-     static void dependencies(Closure closure) {
+    static void dependencies(Closure closure) {
         Gradle gradle = new Gradle();
         closure.delegate = gradle
         closure.call()
