@@ -3,7 +3,7 @@ package objectorention
 /**
  * 1.groovy默认都是public
  */
-class Person implements DefaultAction {
+class Person implements DefaultAction, Serializable {
 
     String name
 
@@ -25,7 +25,7 @@ class Person implements DefaultAction {
      * @return
      */
     def invokeMethod(String name, Object args) {
-        return  "the method is $name,the params is $args"
+        return "the method is $name,the params is $args"
     }
 
     def methodMissing(String name, Object args) {

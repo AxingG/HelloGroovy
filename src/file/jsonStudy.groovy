@@ -1,20 +1,15 @@
 package file
 
+import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
+import objectorention.Person
 
-def response = getNetworkData('http://yuexibo.top/yxbApp/course_detail.json')
+def person = new Person(name: 'zhaojiaxing', age: 11)
 
-println response.data.head.name
+def json =  JsonOutput.toJson(person)
 
-def getNetworkData(String url) {
-    // 发送http请求
-    def connection = new URL(url).openConnection()
-    connection.setRequestMethod('GET')
-    connection.connect()
-    def response = connection.content.text
+println JsonOutput.prettyPrint(json)
 
-    // 将json转化为实体对象
-    def jsonSlurper = new JsonSlurper();
-    return jsonSlurper.parseText(response)
-
-}
+def jsonPl = new JsonSlurper()
+def the_person = jsonPl.parseText(json)
+println "$the_person.name $the_person.age"
